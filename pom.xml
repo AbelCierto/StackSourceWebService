@@ -2,6 +2,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
@@ -9,10 +10,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.example</groupId>
-    <artifactId>StackSourceWebService</artifactId>
+    <artifactId>StackSourceWebServices</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>StackSourceWebService</name>
-    <description>StackSourceWebService</description>
+    <name>StackSourceWebServices</name>
+    <description>StackSourceWebServices</description>
     <properties>
         <java.version>8</java.version>
     </properties>
@@ -35,8 +36,9 @@
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
-            <scope>42.2.27</scope>
+            <version>42.2.27</version>
         </dependency>
+
         <dependency>
             <groupId>com.azure.spring</groupId>
             <artifactId>spring-cloud-azure-dependencies</artifactId>
@@ -44,6 +46,7 @@
             <type>pom</type>
             <scope>import</scope>
         </dependency>
+
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -71,7 +74,6 @@
             <version>2.9.2</version>
         </dependency>
     </dependencies>
-
     <build>
         <finalName>docker-spring-boot</finalName>
         <plugins>
@@ -89,5 +91,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>
