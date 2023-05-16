@@ -21,7 +21,6 @@ import java.util.Optional;
 @CrossOrigin(origins = "*")
 @Api(value = "Web Service RESTFul of Digital Profiles", tags = "DigitalProfiles")
 public class DigitalProfileController {
-
     private final IDigitalProfileService digitalProfileService;
     private final IDeveloperService developerService;
 
