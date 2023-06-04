@@ -84,15 +84,10 @@ public class EducationController {
             Optional<DigitalProfile> digitalProfile = digitalProfileService.getById(idDigitalProfile);
             if(!digitalProfile.isPresent())
                 return new ResponseEntity<>(HttpStatus.FAILED_DEPENDENCY);
-
             //see if this digitalProfile already has an education
-            Optional<Education> educationOptional = educationService.findByDigitalProfileId(idDigitalProfile);
-            if(educationOptional.isPresent())
-                return new ResponseEntity<>(HttpStatus.FAILED_DEPENDENCY);
-
-                education.setDigitalProfile(digitalProfile.get());
-                Education newEducation = educationService.save(education);
-                return ResponseEntity.status(HttpStatus.CREATED).body(newEducation);
+            education.setDigitalProfile(digitalProfile.get());
+            Education newEducation = educationService.save(education);
+            return ResponseEntity.status(HttpStatus.CREATED).body(newEducation);
         }catch (Exception e){
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
