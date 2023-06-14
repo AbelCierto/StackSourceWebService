@@ -82,9 +82,11 @@ public class NotificationController {
                 @ApiResponse(code = 400, message = "Invalid Request"),
                 @ApiResponse(code = 501, message = "Internal Server Error")
         })
-        public ResponseEntity<Notification> insertNotification(@Valid @RequestBody Notification notification, @PathVariable(value = "userId") Long userId){
+        public ResponseEntity<Notification> insertNotification(@Valid @RequestBody Notification notification, @PathVariable(value = "userId") Long userId, @PathVariable("receiverId") Long receiverId){
             Optional<User> emitter = userService.getById(userId);
+            Optional<User> receiver = userService.getById(receiverId);
             notification.setEmitter(emitter.get());
+            notification.setReceiver(receiver.get());
             try {
                 Notification newNotification = notificationService.save(notification);
                 return ResponseEntity.status(HttpStatus.CREATED).body(newNotification);
